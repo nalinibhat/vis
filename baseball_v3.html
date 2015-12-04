@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <script src="http://d3js.org/d3.v3.min.js"></script>
+    <script src="http://dimplejs.org/dist/dimple.v2.0.0.min.js"></script>
+    
+    <style>
+      #main
+	   {
+	   display:flex
+	   }
+	   
+	   .container{
+	   width:1600
+	   height:1000
+	   margin:40
+	   	   }
+      
+    </style>
+
+  </head>
+<body>
+ 
+
+      
+<div id="main">  
+	
+	  <div id="chartContainer1" class="container">
+	   <script type="text/javascript">
+	    var svg = dimple.newSvg("#chartContainer1");
+        d3.csv("baseball_data.csv", function (data)
+				 {
+          
+          "use strict";
+          var margin = 400,
+              width = 600 - margin,
+              height = 700 - margin;
+
+          var svg = d3.select("#chartContainer1")
+            .append("svg")
+              .attr("width", 600)
+              .attr("height", 700)
+            .append('g')
+                .attr('class','chart');
+		 		
+      /*
+        Dimple.js Chart construction code
+      */
+          		  
+          var myChart = new dimple.chart(svg, data);
+		  myChart.setBounds(60, 40, 400, 330)
+          var x= myChart.addCategoryAxis("x", ["handedness","BMI_Range"]);
+          var y= myChart.addMeasureAxis("y", "HR");
+		  y.overrideMax = 65;
+		  y.timeInterval = 5;
+		  x.title = "Handedness";
+		  y.title = "Home Runs Average";
+          /*myChart.addSeries("handedness", dimple.plot.bar);*/
+		  
+		  x.fontSize = "14px";
+          y.fontSize = "14px";
+          x.fontFamily = 'Garamond';
+          y.fontFamily = 'Garamond';
+		  
+		  svg.append('text')
+						    .attr('x', 250)
+						    .attr('y', 30)
+						    .attr('text-anchor', 'middle')
+						    .attr('class', 'chart-title')
+							.attr('font-size', 16)
+   				 .text('Baseball Player Handedness Vs Avg Home Runs');
+		  
+		  		 
+		 var avg = myChart.addSeries("BMI_Range", dimple.plot.bar,[x, y]);
+         avg.aggregate = dimple.aggregateMethod.avg;
+		 var myLegend= myChart.addLegend(300, 100, 510, 10, "right");
+		 myChart.draw();
+		 	 
+		});
+	  </script> 
+	</div>	
+	
+	<div id="chartContainer2" class="container">
+	   <script type="text/javascript">
+	    var svg2 = dimple.newSvg("#chartContainer2");
+        d3.csv("baseball_data_avg.csv", function (data)
+				 {
+          
+          "use strict";
+          var margin = 400,
+              width = 600 - margin,
+              height = 700 - margin;
+
+          var svg2 = d3.select("#chartContainer2")
+            .append("svg")
+              .attr("width", 600)
+              .attr("height", 700)
+            .append('g')
+                .attr('class','chart');
+		 		
+      /*
+        Dimple.js Chart construction code
+      */
+          		  
+          var myChart = new dimple.chart(svg2, data);
+		  myChart.setBounds(60, 40, 400, 330)
+          var x= myChart.addCategoryAxis("x", ["handedness","BMI_Range"]);
+          var y= myChart.addMeasureAxis("y", "avg");
+		  //y.overrideMax = 65;
+		  //y.timeInterval = 5;
+		  x.title = "Handedness";
+		  y.title = "Average Score";
+          /*myChart.addSeries("handedness", dimple.plot.bar);*/
+		  
+		  x.fontSize = "14px";
+          y.fontSize = "14px";
+          x.fontFamily = 'Garamond';
+          y.fontFamily = 'Garamond';
+		  
+		  svg.append('text')
+						    .attr('x', 250)
+						    .attr('y', 30)
+						    .attr('text-anchor', 'middle')
+						    .attr('class', 'chart-title')
+							.attr('font-size', 16)
+   				 .text('Baseball Player Handedness Vs Avg Score');
+		  
+		  		 
+		 var avg = myChart.addSeries("BMI_Range", dimple.plot.bar,[x, y]);
+         avg.aggregate = dimple.aggregateMethod.avg;
+		 var myLegend= myChart.addLegend(300, 100, 510, 10, "right");
+		 myChart.draw();
+		 	 
+		});
+	  </script> 
+	</div>	
+</div>
+
+ 
+</body>
+</html>
