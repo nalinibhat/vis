@@ -2,6 +2,7 @@ Visualization (Udacity project 5)
 
 
 Summary
+
 The chart compares left handed Vs Right handed baseball players who have similar Body Mass Index. For comparing I have used the Home Run as a metric. Baseball players with higher Home Runs are typically famous & amongst the highest paid players.
 
 ------------------------------------------------------------------------------------------------------------------
@@ -11,6 +12,7 @@ I selected bar chart, because I have categorized the players on the basis of the
 
 
 Feedback 1
+
 Initially I had represented left & right handers using color encoding. But, I got the below feedback:-
 1)	The user had to switch his sight multiple times between the chart & the legend to understand if he is looking at left hander or right hander. So, the message conveyed was not very clear. Viewer initially thought I was showing performance between normal & overweight players. But, I had initially intended to show performance between left handed & right handed players. But, I can leave it to the viewer to do the comparison based on either BMI or handedness.
 
@@ -18,18 +20,22 @@ Initially I had represented left & right handers using color encoding. But, I go
 3) The chart could have been in the center, with its size adjusted.
 
 Design changes 1:-
+
  I changed the chart, by showing BMI in color encoding & handedness in x axis.
 I added some context before showing the chart
 I added 2 charts, so that I can show comparison between average score & also HR.
 
 
 Feedback 2:-
+
 1.	Did you consider 0 values in your analysis on average vs handedness
 2.	Did you eliminate the zero's from Home Runs average?
 3.	Could you show the BMI as part of the tool tip
 4.	It will be good if you can expand the abbrevations used in x axis
 5.	In the second graph, the y axis ticks seems to be repeating. Could you try overriding them
+	
 Feedback 3:-
+
 1.	Why are the graphics repeated below? I couldn't see any difference. They repeated graphics showed up after a short moment. Maybe a rest of an animation?
 2.	The color codings are flipped on left vs. right. I think they should be the same.
 3.	The categories (R,L,B) are very abstract. They could be explained more.
