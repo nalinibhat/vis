@@ -1,4 +1,6 @@
 Visualization (Udacity project 5)
+
+
 Summary
 The chart compares left handed Vs Right handed baseball players who have similar Body Mass Index. For comparing I have used the Home Run as a metric. Baseball players with higher Home Runs are typically famous & amongst the highest paid players.
 
