@@ -88,7 +88,9 @@
 		  
 		 /* Add series to the chart & plot the average of HR */		 
 		 var s = myChart.addSeries("BMI_Range", dimple.plot.bar,[x, y]);
+		 s.addOrderRule(["Normal", "Overweight"]);
          s.aggregate = dimple.aggregateMethod.avg;
+		 
 		 
 		 /* Adjust bar color */
 		 myChart.assignColor("Normal","#f9d25b");	
@@ -148,15 +150,18 @@
    				 .text('Baseball Player Handedness Vs Avg Score');
 		  
 		 /* Add series to the chart & plot the average of average score */			 
-		 var avg1 = myChart1.addSeries("BMI_Range", dimple.plot.bar,[x1, y1]);
-         avg1.aggregate = dimple.aggregateMethod.avg;
+		 var s1 = myChart1.addSeries("BMI_Range", dimple.plot.bar,[x1, y1]);
+		 s1.addOrderRule(["Overweight","Normal"]);
+         s1.aggregate = dimple.aggregateMethod.avg;
+		 
 		
+		 
 		 /* Adjust bar color */
 		 myChart1.assignColor("Normal","#f9d25b");	
 		 myChart1.assignColor("Overweight","#8b7676");	
 		 
 		 /* Add legend */
-         var myLegend1= myChart1.addLegend(30, 100, 900, 10, "right");
+         var myLegend1= myChart1.addLegend(30, 100, 880, 10, "right");
 		 myChart1.draw();
 		 	 
 		});
